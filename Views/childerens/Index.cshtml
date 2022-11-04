@@ -1,0 +1,55 @@
+﻿@model IEnumerable<shopping.Models.childeren>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout2";
+
+}
+
+<h1 style="color:white;text-align:center" > Edit Childeren</h1>
+
+<p>
+    <a asp-action="Create" style="color:darkorange;font-size:x-large">Create New</a>
+</p>
+<table class="table">
+    <thead style="color:white;font-size:x-large">
+        <tr>
+            <th  >
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Images)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="color:orange ;font-size:x-large" >
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td style="color:orange ;font-size:x-large">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.Images != null)
+                {
+                    <img class=" rounded-circle" src="data:image/*;base64,@(Convert.ToBase64String(item.Images))" alt="..." width="60" height="60">
+
+                }
+               
+              
+            </td>
+            <td style="margin-left:20px">
+                <a asp-action="Edit" asp-route-id="@item.Id" style="color:azure ;font-size:x-large">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"style="color: azure; font-size: x-large ">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"style="color: azure; font-size: x-large ">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

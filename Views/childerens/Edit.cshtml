@@ -1,0 +1,52 @@
+﻿@model shopping.Models.childeren
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Layout2";
+}
+
+<h1 style="color:white;text-align:center">Edit Information</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4" style="margin-left:350px">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Price" class="control-label" style="color:darkorange ;font-size:x-large"></label>
+                <input asp-for="Price" class="form-control" size="200" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label" style="color:darkorange ;font-size:x-large"></label>
+                <input asp-for="Description" class="form-control" size="200" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Images" class="control-label" style="color:darkorange ;font-size:x-large"></label>
+
+
+                @if (Model.Images != null)
+                {
+                    <img class="img-responsive full-width" src="data:image/jpeg;base64,@Convert.ToBase64String(@Model.Images)" width="60" height="60" />
+                }
+
+
+                <input type="file" asp-for="Images" class="form-control" size="200" name="file1" />
+                <span asp-validation-for="Images" class="text-danger"></span>
+                <hr />
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" style="color: white; border-radius: 1rem; background-color: darkorange; font-size: x-large" />
+                <hr />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" style="color: white; font-size: x-large; margin-left: 300px;margin-bottom:20px ">Back to List</a>
+</div>
+

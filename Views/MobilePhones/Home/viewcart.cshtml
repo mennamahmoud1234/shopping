@@ -1,0 +1,45 @@
+﻿
+@{
+}
+@model List<order>
+
+<table class="table" align="center">
+    <tr style="color: white; font-size: x-large" >
+
+        <th> Product</th>
+        <th> quantity</th>
+        <th> Price</th>
+        <th>Total Price</th>
+        
+
+
+    </tr >
+
+   @foreach(var item in Model)
+   {
+       
+
+<tr style="color: orange; font-size: x-large">
+    <td>@item.Product</td>
+    <td>@item.Quantity</td>
+    <td>@item.Price</td>
+    <td>  @item.Price*@item.Quantity</td>
+
+
+   
+
+
+</tr>
+
+
+            }
+
+
+
+
+
+
+
+
+
+</table>
